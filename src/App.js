@@ -1,5 +1,4 @@
 import React from 'react'
-// import Exchange from './containers/_Exchange'
 import Exchange from './containers/Exchange'
 import {
   Title, Subtitle, Container, AppWrapper,
@@ -11,7 +10,7 @@ function App() {
       <Container>
         <header className="App-header" style={{ marginBottom: '45px' }}>
           <Title>Crypto Exchange</Title>
-          <Subtitle>Exchange fast end easy</Subtitle>
+          <Subtitle>Exchange fast and easy</Subtitle>
         </header>
         <Exchange />
       </Container>

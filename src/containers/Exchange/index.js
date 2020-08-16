@@ -42,7 +42,7 @@ const Exchange = () => {
     if (lastError) {
       if (lastError.error) {
         if (lastError.error === 'pair_is_inactive') return 'this pair is disabled now'
-        return lastError.error
+        return lastError.error.split('_').join(' ')
       }
       return 'unknown error'
     }
@@ -53,7 +53,6 @@ const Exchange = () => {
 
   const changePair = async (newPair) => {
     await dispatch(setPair(newPair))
-    console.log('test', newPair)
     await dispatch(fetchMinAmount(newPair))
   }
 
@@ -68,10 +67,6 @@ const Exchange = () => {
   useEffect(() => {
     if (lastError) dispatch(setGetAmount('-'))
   }, [lastError])
-
-  // useEffect(() => {
-  //   changePair(pair)
-  // }, [pair])
 
   useEffect(() => {
     dispatch(setSendAmount(minSendAmount))
